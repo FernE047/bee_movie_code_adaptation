@@ -1,9 +1,7 @@
 from characters.base_character import BaseCharacter
-from species.base_specie import BaseSpecie
+from species.bears import Bear
 
 
-class Bear(BaseCharacter):
+class BearCharacter(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(
-            name="Bear", nickname="Bear", species=BaseSpecie("Bear")
-        )  # TODO: implement Bears
+        super().__init__(name="Bear", nickname="Bear", species=Bear())

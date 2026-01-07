@@ -1,7 +1,7 @@
 from characters.base_character import BaseCharacter
-from species.base_specie import BaseSpecie
+from species.waterbugs import WaterBug
 
 
-class WaterBug(BaseCharacter):
+class WaterBugCharacter(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Water bug", nickname="Water bug", species=BaseSpecie("Water bug")) #TODO: Implement Water bug specie
+        super().__init__(name="Water bug", nickname="Water bug", species=WaterBug())
