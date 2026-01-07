@@ -1,1 +1,3 @@
+.mypy_cache/
+__pycache__/
 bee_movie_transcript.txt
