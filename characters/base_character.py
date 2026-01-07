@@ -10,6 +10,7 @@ class Emotion(Enum):
 class BaseCharacter:
     def __init__(self, name: str, nickname: str, species: BaseSpecie) -> None:
         self.name = name
+        self.used_name_flag = False
         self.nickname = nickname
         self.species = species
         self.location: None | str = None
@@ -26,4 +27,8 @@ class BaseCharacter:
         self.emotion = emotion
 
     def speak(self, text: str) -> None:
-        print(f"{self.nickname}: {text}")
+        if self.used_name_flag:
+            print(f"{self.nickname}: {text}")
+        else:
+            print(f"{self.nickname} ({self.name}): {text}")
+            self.used_name_flag = True
