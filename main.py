@@ -1,4 +1,4 @@
-from characters.character_barry import Barry
+from characters.main_character_barry import Barry
 from species.bees import Bee
 from models.wardrobe import Wardrobe
 
