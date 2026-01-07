@@ -1,6 +1,7 @@
 from characters.base_character import BaseCharacter, Emotion
 from characters.character_mom import Mom
-from models.honey_dispenser import HoneyDispenser
+from food_holders.honey_dispenser import HoneyDispenser
+from foods.honey import Honey
 from models.wardrobe import Wardrobe
 from species.bees import Bee
 
@@ -12,7 +13,7 @@ class Barry(BaseCharacter):
         self.is_hair_styled = False
         self.is_mouth_rinsed = False
         self.is_armpits_honeyed = False
-        self.honey_stored = 0
+        self.honey_stored = Honey(amount=0)
         self.mom: None | Mom = None
 
     def choose_clothing(self, wardrobe: Wardrobe) -> None:
@@ -31,35 +32,26 @@ class Barry(BaseCharacter):
                 )  # Simplified, because Barry is always excited
                 break
 
-    def uses_honey(self, amount: int) -> None:
-        if amount <= self.honey_stored:
-            self.honey_stored -= amount
-        else:
-            self.action(
-                f"{self.nickname} tries to use {amount} units of honey but only has {self.honey_stored}."
-            )
-            raise ValueError("Movie Over:Not enough honey stored.")
-
     def get_honey_from_dispenser(self, dispenser: HoneyDispenser, amount: int) -> None:
         dispensed = dispenser.dispense(amount)
-        self.honey_stored += dispensed
+        self.honey_stored.refill(dispensed.amount)
         self.action(
             f"{self.nickname} gets {dispensed} units of honey from the dispenser."
         )
 
     def style_hair(self) -> None:
         self.is_hair_styled = True
-        self.uses_honey(5)
+        self.honey_stored.consume(5)
         self.action(f"{self.nickname} uses honey to style his hair.")
 
     def rinse_mouth(self) -> None:
         self.is_mouth_rinsed = True
-        self.uses_honey(3)
+        self.honey_stored.consume(3)
         self.action(f"{self.nickname} uses honey to rinse his mouth.")
 
     def honey_armpits(self) -> None:
         self.is_armpits_honeyed = True
-        self.uses_honey(2)
+        self.honey_stored.consume(2)
         self.action(f"{self.nickname} then applies honey to his armpits.")
 
     def get_ready(self, dispenser: HoneyDispenser) -> None:
@@ -70,5 +62,5 @@ class Barry(BaseCharacter):
 
     def get_mom(self) -> Mom:
         if self.mom is None:
-            self.mom = Mom()    
+            self.mom = Mom()
         return self.mom

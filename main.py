@@ -1,6 +1,6 @@
 from characters.character_narrator import Narrator
 from main_characters.character_barry import Barry
-from models.honey_dispenser import HoneyDispenser
+from food_holders.honey_dispenser import HoneyDispenser
 from species.bees import Bee
 from models.wardrobe import Wardrobe
 
