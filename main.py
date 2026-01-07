@@ -1,5 +1,6 @@
 from characters.character_narrator import Narrator
 from characters.main_character_barry import Barry
+from models.honey_dispenser import HoneyDispenser
 from species.bees import Bee
 from models.wardrobe import Wardrobe
 
@@ -13,6 +14,8 @@ def main() -> None:
     wardrobe = Wardrobe()
     wardrobe.fill_wardrobe()
     barry.choose_clothing(wardrobe)
+    dispenser_at_bathroom = HoneyDispenser(capacity=100)
+    barry.get_ready(dispenser_at_bathroom)
 
 
 if __name__ == "__main__":
