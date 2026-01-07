@@ -1,0 +1,7 @@
+from characters.base_character import BaseCharacter
+from species.bees import Bee
+
+
+class Announcer(BaseCharacter):
+    def __init__(self) -> None:
+        super().__init__(name="Announcer", nickname="Announcer", species=Bee())
