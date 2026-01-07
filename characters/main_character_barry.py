@@ -9,7 +9,7 @@ class Barry(BaseCharacter):
         self.set_emotion(Emotion.EXCITED)
 
     def choose_clothing(self, wardrobe: Wardrobe) -> None:
-        print(f"{self.name} is choosing clothes from his wardrobe.")
+        print(f"{self.nickname} is choosing clothes from his wardrobe.")
         for item in wardrobe.clothes:
             color = item.color
             if self.emotion == Emotion.EXCITED:
