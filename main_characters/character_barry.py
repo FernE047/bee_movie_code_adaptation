@@ -1,4 +1,5 @@
 from characters.base_character import BaseCharacter, Emotion
+from characters.character_mom import Mom
 from models.honey_dispenser import HoneyDispenser
 from models.wardrobe import Wardrobe
 from species.bees import Bee
@@ -12,6 +13,7 @@ class Barry(BaseCharacter):
         self.is_mouth_rinsed = False
         self.is_armpits_honeyed = False
         self.honey_stored = 0
+        self.mom: None | Mom = None
 
     def choose_clothing(self, wardrobe: Wardrobe) -> None:
         self.action(f"{self.nickname} is choosing clothes from his wardrobe.")
@@ -65,3 +67,8 @@ class Barry(BaseCharacter):
         self.style_hair()
         self.rinse_mouth()
         self.honey_armpits()
+
+    def get_mom(self) -> Mom:
+        if self.mom is None:
+            self.mom = Mom()    
+        return self.mom

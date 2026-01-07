@@ -16,6 +16,8 @@ def main() -> None:
     barry.choose_clothing(wardrobe)
     dispenser_at_bathroom = HoneyDispenser(capacity=100)
     barry.get_ready(dispenser_at_bathroom)
+    mom = barry.get_mom()
+    mom.set_location("Kitchen")
 
 
 if __name__ == "__main__":
