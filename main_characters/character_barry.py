@@ -1,5 +1,6 @@
 from characters.base_character import BaseCharacter, Emotion
 from characters.character_mom import Mom
+from food_holders.breakfasts import Breakfast
 from food_holders.honey_dispenser import HoneyDispenser
 from foods.honey import Honey
 from models.wardrobe import Wardrobe
@@ -64,3 +65,9 @@ class Barry(BaseCharacter):
         if self.mom is None:
             self.mom = Mom()
         return self.mom
+
+    def react_to_breakfast_call(self, breakfast: Breakfast) -> None:
+        if breakfast.is_ready():
+            self.speak("Coming!")
+        else:
+            self.speak("What's for breakfast?")

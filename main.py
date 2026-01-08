@@ -19,6 +19,7 @@ def main() -> None:
     mom = barry.get_mom()
     mom.set_location("Kitchen")
     mom.prepare_breakfast()
+    barry.react_to_breakfast_call(mom.serve_breakfast())
 
 
 if __name__ == "__main__":
