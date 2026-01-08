@@ -16,8 +16,11 @@ class BaseCharacter:
         self.location: None | str = None
         self.emotion: Emotion = Emotion.NEUTRAL
 
+    def build_action(self, action: str) -> str:
+        return f"({action})"
+
     def action(self, action: str) -> None:
-        print(f"({action})")
+        print(self.build_action(action))
 
     def set_location(self, location: str) -> None:
         self.location = location
