@@ -8,7 +8,9 @@ from species.bees import Bee
 
 class Barry(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Barry Benson", nickname="Barry", species=Bee())
+        self.name = "Barry Benson"
+        self.nickname = "Barry"
+        self.species = Bee()
         self.set_emotion(Emotion.EXCITED)
         self.is_hair_styled = False
         self.is_mouth_rinsed = False
