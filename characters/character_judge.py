@@ -4,4 +4,6 @@ from species.humans import Human
 
 class Judge(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Judge", nickname="Judge", species=Human())
+        self.name = "Judge"
+        self.nickname = "Judge"
+        self.species = Human()

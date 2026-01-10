@@ -4,4 +4,6 @@ from species.bees import Bee
 
 class Jeanette(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Jeanette Chung", nickname="Jeanette", species=Bee())
+        self.name = "Jeanette Chung"
+        self.nickname = "Jeanette"
+        self.species = Bee()

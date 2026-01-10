@@ -4,4 +4,6 @@ from species.waterbugs import WaterBug
 
 class WaterBugCharacter(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Water bug", nickname="Water bug", species=WaterBug())
+        self.name = "Water bug"
+        self.nickname = "Water bug"
+        self.species = WaterBug()

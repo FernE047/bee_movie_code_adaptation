@@ -2,5 +2,7 @@ from foods.base_food import BaseFood
 
 
 class HoneyCoffee(BaseFood):
-    def __init__(self):
-        super().__init__(name="Honey Coffee", amount=1, unit="cup")
+    def __init__(self) -> None:
+        self.name = "Honey Coffee"
+        self.amount = 1
+        self.unit = "cup"
