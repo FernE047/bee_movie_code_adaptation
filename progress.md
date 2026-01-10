@@ -1,2 +1,2 @@
-transcript lines: 5/1307
-percentage: 0,38%
+transcript lines: 6/1307
+percentage: 0,45%
