@@ -1,3 +1,4 @@
+from characters.character_adam import Adam
 from characters.character_narrator import Narrator
 from main_characters.character_barry import Barry
 from food_holders.honey_dispenser import HoneyDispenser
@@ -20,6 +21,8 @@ def main() -> None:
     mom.set_location("Kitchen")
     mom.prepare_breakfast()
     barry.react_to_breakfast()
+    adam_flayman = Adam()
+    barry.receives_call(adam_flayman)
 
 
 if __name__ == "__main__":

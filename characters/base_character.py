@@ -5,6 +5,7 @@ from enum import Enum
 class Emotion(Enum):
     NEUTRAL = "neutral"
     EXCITED = "excited"
+    ANNOYED = "annoyed"
 
 
 class BaseCharacter:

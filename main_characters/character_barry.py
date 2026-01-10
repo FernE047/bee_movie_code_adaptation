@@ -7,10 +7,10 @@ from species.bees import Bee
 
 
 class Barry(BaseCharacter):
+    species: Bee
+
     def __init__(self) -> None:
-        self.name = "Barry Benson"
-        self.nickname = "Barry"
-        self.species = Bee()
+        super().__init__(name="Barry Benson", nickname="Barry", species=Bee())
         self.set_emotion(Emotion.EXCITED)
         self.is_hair_styled = False
         self.is_mouth_rinsed = False
@@ -37,7 +37,14 @@ class Barry(BaseCharacter):
         self.honey_stored.refill(dispensed.amount)
         self.action(f"{self.nickname} gets {dispensed} from the dispenser.")
 
-    def uses_honey_action(self, honey_needed: int, success_message: str, failure_message: str, partial_message: str, set_flag: str) -> None:
+    def uses_honey_action(
+        self,
+        honey_needed: int,
+        success_message: str,
+        failure_message: str,
+        partial_message: str,
+        set_flag: str,
+    ) -> None:
         honey_used = self.honey_stored.consume(honey_needed)
         if honey_used == 0:
             setattr(self, set_flag, False)
@@ -55,7 +62,7 @@ class Barry(BaseCharacter):
             success_message=f"{self.nickname} uses honey to style his hair.",
             failure_message="Uh oh, no honey left to style my hair! on my big day?!",
             partial_message="that should be enough honey to style my hair.",
-            set_flag="is_hair_styled"
+            set_flag="is_hair_styled",
         )
 
     def rinse_mouth(self) -> None:
@@ -64,7 +71,7 @@ class Barry(BaseCharacter):
             success_message=f"{self.nickname} uses honey to rinse his mouth.",
             failure_message="We really need to buy more honey. My mouth is dry.",
             partial_message="just a little honey left, but I'll manage to rinse my mouth.",
-            set_flag="is_mouth_rinsed"
+            set_flag="is_mouth_rinsed",
         )
 
     def honey_armpits(self) -> None:
@@ -73,7 +80,7 @@ class Barry(BaseCharacter):
             success_message=f"{self.nickname} uses applies honey to his armpits.",
             failure_message="C'mon, we are bees and we don't have honey to honey our armpits? The horror!",
             partial_message="I'll have to make do with the little honey I have to honey my armpits.",
-            set_flag="is_armpits_honeyed"
+            set_flag="is_armpits_honeyed",
         )
 
     def get_ready(self, dispenser: HoneyDispenser) -> None:
@@ -86,6 +93,12 @@ class Barry(BaseCharacter):
         if self.mom is None:
             self.mom = Mom()
         return self.mom
-    
+
     def react_to_breakfast(self) -> None:
         self.speak("Coming!")
+
+    def receives_call(self, caller: BaseCharacter) -> None:
+        self.species.receive_call(caller, self)
+        self.species.answers()
+        #implement conversation here if needed
+        self.species.hangs_up()
