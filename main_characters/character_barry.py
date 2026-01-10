@@ -37,41 +37,44 @@ class Barry(BaseCharacter):
         self.honey_stored.refill(dispensed.amount)
         self.action(f"{self.nickname} gets {dispensed} from the dispenser.")
 
-    def style_hair(self) -> None:
-        honey_used = self.honey_stored.consume(5)
+    def uses_honey_action(self, honey_needed: int, success_message: str, failure_message: str, partial_message: str, set_flag: str) -> None:
+        honey_used = self.honey_stored.consume(honey_needed)
         if honey_used == 0:
-            self.is_hair_styled = False
-            self.speak("Uh oh, no honey left to style my hair! on my big day?!")
-        elif honey_used < 5:
-            self.is_hair_styled = True
-            self.speak("that should be enough honey to style my hair.")
+            setattr(self, set_flag, False)
+            self.speak(failure_message)
+        elif honey_used < honey_needed:
+            setattr(self, set_flag, True)
+            self.speak(partial_message)
         else:
-            self.is_hair_styled = True
-            self.action(f"{self.nickname} uses honey to style his hair.")
+            setattr(self, set_flag, True)
+            self.action(success_message)
+
+    def style_hair(self) -> None:
+        self.uses_honey_action(
+            honey_needed=5,
+            success_message=f"{self.nickname} uses honey to style his hair.",
+            failure_message="Uh oh, no honey left to style my hair! on my big day?!",
+            partial_message="that should be enough honey to style my hair.",
+            set_flag="is_hair_styled"
+        )
 
     def rinse_mouth(self) -> None:
-        honey_used = self.honey_stored.consume(3)
-        if honey_used == 0:
-            self.is_mouth_rinsed = False
-            self.speak("We really need to buy more honey. My mouth is dry.")
-        elif honey_used < 3:
-            self.is_mouth_rinsed = True
-            self.speak("just a little honey left, but I'll manage to rinse my mouth.")
-        else:
-            self.is_mouth_rinsed = True
-            self.action(f"{self.nickname} uses honey to rinse his mouth.")
+        self.uses_honey_action(
+            honey_needed=3,
+            success_message=f"{self.nickname} uses honey to rinse his mouth.",
+            failure_message="We really need to buy more honey. My mouth is dry.",
+            partial_message="just a little honey left, but I'll manage to rinse my mouth.",
+            set_flag="is_mouth_rinsed"
+        )
 
     def honey_armpits(self) -> None:
-        honey_used = self.honey_stored.consume(2)
-        if honey_used == 0:
-            self.is_armpits_honeyed = False
-            self.speak("C'mon, we are bees and we don't have honey to honey our armpits? The horror!")
-        elif honey_used < 2:
-            self.is_armpits_honeyed = True
-            self.speak("I'll have to make do with the little honey I have to honey my armpits.")
-        else:
-            self.is_armpits_honeyed = True
-            self.action(f"{self.nickname} uses applies honey to his armpits.")
+        self.uses_honey_action(
+            honey_needed=2,
+            success_message=f"{self.nickname} uses applies honey to his armpits.",
+            failure_message="C'mon, we are bees and we don't have honey to honey our armpits? The horror!",
+            partial_message="I'll have to make do with the little honey I have to honey my armpits.",
+            set_flag="is_armpits_honeyed"
+        )
 
     def get_ready(self, dispenser: HoneyDispenser) -> None:
         self.get_honey_from_dispenser(dispenser, 10)
