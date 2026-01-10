@@ -86,3 +86,6 @@ class Barry(BaseCharacter):
         if self.mom is None:
             self.mom = Mom()
         return self.mom
+    
+    def react_to_breakfast(self) -> None:
+        self.speak("Coming!")
