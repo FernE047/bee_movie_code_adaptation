@@ -4,13 +4,14 @@ class BaseFood:
         self.amount = amount
         self.unit = unit
 
-    def consume(self, quantity: int) -> None:
+    def consume(self, quantity: int) -> int:
         if self.has_amount(quantity):
             self.amount -= quantity
+            return quantity
         else:
-            raise ValueError(
-                f"Not enough {self.name} to consume the requested quantity."
-            )
+            consumed_amount = self.amount
+            self.amount = 0
+            return consumed_amount
 
     def refill(self, quantity: int) -> None:
         self.amount += quantity

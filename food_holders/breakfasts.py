@@ -10,8 +10,6 @@ class Breakfast(BaseFood):
         self.ingredients: list[BaseFood] = []
 
     def prepare(self, honey: Honey) -> None:
-        # Use honey to prepare breakfast items
-        # it's assumed that breakfast requires both honey coffee and honey bread
         honey_coffee = honey.make_honey_coffee()
         honey_bread = honey.make_honey_bread()
         self.ingredients.append(honey_coffee)
