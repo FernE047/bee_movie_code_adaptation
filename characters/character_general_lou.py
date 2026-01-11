@@ -3,7 +3,7 @@ from species.bees import Bee
 
 
 class GeneralLou(BaseCharacter):
+    species: Bee
+
     def __init__(self) -> None:
-        self.name = "General Lou"
-        self.nickname = "General"
-        self.species = Bee()
+        super().__init__(name="General Lou", nickname="General", species=Bee())

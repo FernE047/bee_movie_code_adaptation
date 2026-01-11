@@ -3,8 +3,7 @@ from species.speaker import Speaker
 
 
 class Narrator(BaseCharacter):
+    species: Speaker
+
     def __init__(self) -> None:
-        super().__init__(name="Narrator", nickname="Narrator", species=Speaker())
-        self.name = ""
-        self.nickname = "Narrator"
-        self.species = Speaker()
+        super().__init__(name="", nickname="Narrator", species=Speaker())

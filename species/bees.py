@@ -9,9 +9,7 @@ if TYPE_CHECKING:
 
 class Bee(BaseSpecie):
     def __init__(self) -> None:
-        self.name = "Bee"
-        self.can_fly_flag = True
-        self.should_fly = False
+        super().__init__(name="Bee", can_fly=True, should_fly=False)
         self.bee_phone = BeePhone(ringtone="Bzzzt Bzzt")
 
     def receive_call(self, caller: BaseCharacter, owner: BaseCharacter) -> None:

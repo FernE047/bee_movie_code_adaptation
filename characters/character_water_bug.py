@@ -3,7 +3,7 @@ from species.waterbugs import WaterBug
 
 
 class WaterBugCharacter(BaseCharacter):
+    species: WaterBug
+
     def __init__(self) -> None:
-        self.name = "Water bug"
-        self.nickname = "Water bug"
-        self.species = WaterBug()
+        super().__init__(name="Water bug", nickname="Water bug", species=WaterBug())

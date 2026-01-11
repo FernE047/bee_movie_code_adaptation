@@ -4,9 +4,7 @@ from foods.honey import Honey
 
 class Breakfast(BaseFood):
     def __init__(self) -> None:
-        self.name="Breakfast"
-        self.amount=1
-        self.unit="meal"
+        super().__init__(name="Breakfast", amount=1, unit="meal")
         self.ingredients: list[BaseFood] = []
 
     def prepare(self, honey: Honey) -> None:

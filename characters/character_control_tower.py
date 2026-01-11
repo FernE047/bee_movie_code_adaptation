@@ -3,7 +3,9 @@ from species.humans import Human
 
 
 class ControlTower(BaseCharacter):
+    species: Human
+
     def __init__(self) -> None:
-        self.name = "Control Tower"
-        self.nickname = "Control Tower"
-        self.species = Human()
+        super().__init__(
+            name="Control Tower", nickname="Control Tower", species=Human()
+        )

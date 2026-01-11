@@ -3,7 +3,7 @@ from species.humans import Human
 
 
 class Vanessa(BaseCharacter):
+    species: Human
+
     def __init__(self) -> None:
-        self.name = "Vanessa"
-        self.nickname = "Vanessa"
-        self.species = Human()
+        super().__init__(name="Vanessa", nickname="Vanessa", species=Human())

@@ -8,9 +8,7 @@ HONEY_BREAD_HONEY_AMOUNT = 20
 
 class Honey(BaseFood):
     def __init__(self, amount: int) -> None:
-        self.name = "Honey"
-        self.amount = amount
-        self.unit = "ml"
+        super().__init__(name="Honey", amount=amount, unit="ml")
 
     def drizzle(self, quantity: int) -> None:
         self.consume(quantity)
