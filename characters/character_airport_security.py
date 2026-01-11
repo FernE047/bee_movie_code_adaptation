@@ -4,4 +4,6 @@ from species.humans import Human
 
 class AirportSecurity(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Airport Security", nickname="Airport Security", species=Human())
+        self.name = "Airport Security"
+        self.nickname = "Airport Security"
+        self.species = Human()

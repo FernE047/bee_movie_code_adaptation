@@ -8,6 +8,9 @@ class Mom(BaseCharacter):
     def __init__(self) -> None:
         super().__init__(name="Janet Benson", nickname="Mom", species=Bee())
         self.breakfast: None | Breakfast = None
+        self.name="Janet Benson"
+        self.nickname="Mom"
+        self.species=Bee()
 
     def get_honey_supply(self) -> Honey:
         return Honey(amount=200)

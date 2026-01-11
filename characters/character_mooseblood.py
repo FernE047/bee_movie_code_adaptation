@@ -4,4 +4,6 @@ from species.mosquitoes import Mosquito
 
 class Mooseblood(BaseCharacter):
     def __init__(self) -> None:
-        super().__init__(name="Mooseblood", nickname="Mooseblood", species=Mosquito())
+        self.name = "Mooseblood"
+        self.nickname = "Mooseblood"
+        self.species = Mosquito()
