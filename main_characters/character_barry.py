@@ -99,7 +99,7 @@ class Barry(BaseCharacter):
         if breakfast.is_ready():
             self.speak("Coming!")
         else:
-            self.speak("What's for breakfast?")
+            self.asks("What's for breakfast")
 
     def receives_call(self, caller: BaseCharacter) -> None:
         self.species.receive_call(caller, self)
@@ -107,7 +107,7 @@ class Barry(BaseCharacter):
         caller.action("on the phone")
         caller.ask_known_name(self)
         self.ask_known_name(caller)
-        caller.speak("Can you believe this is happening?")
+        caller.asks("Can you believe this is happening")
         self.set_emotion(Emotion.EXCITED)
         self.speak("I can't believe it. I'll pick you up.")
         self.species.hangs_up()

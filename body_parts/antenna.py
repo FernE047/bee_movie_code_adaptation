@@ -28,7 +28,7 @@ class Antenna:
         self.owner.action("adjusts his antennas into a headset")
         self.is_ringing = False
         self.owner.set_emotion(Emotion.ANNOYED)
-        self.owner.speak("Hello?")
+        self.owner.asks("Hello")
 
     def hangs_up(self) -> None:
         if self.owner is None:

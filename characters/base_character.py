@@ -37,5 +37,8 @@ class BaseCharacter:
             print(f"{self.nickname} ({self.name}): {text}")
             self.used_name_flag = True
 
+    def asks(self, question: str) -> None:
+        self.speak(f"{question}?")
+
     def ask_known_name(self, other_character: "BaseCharacter") -> None:
-        self.speak(f"{other_character.nickname.title()}?")
+        self.asks(f"{other_character.nickname.title()}")
