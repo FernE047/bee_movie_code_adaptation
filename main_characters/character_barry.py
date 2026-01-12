@@ -104,5 +104,10 @@ class Barry(BaseCharacter):
     def receives_call(self, caller: BaseCharacter) -> None:
         self.species.receive_call(caller, self)
         self.species.answers()
-        #implement conversation here if needed
+        caller.action("on the phone")
+        caller.ask_known_name(self)
+        self.ask_known_name(caller)
+        caller.speak("Can you believe this is happening?")
+        self.set_emotion(Emotion.EXCITED)
+        self.speak("I can't believe it. I'll pick you up.")
         self.species.hangs_up()
