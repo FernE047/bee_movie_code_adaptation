@@ -1,7 +1,7 @@
 from characters.base_character import BaseCharacter, Emotion
 
 
-class BeePhone:
+class Antenna:
     def __init__(self, ringtone: str) -> None:
         self.ringtone: str = ringtone
         self.is_ringing = False
