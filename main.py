@@ -1,13 +1,13 @@
-from characters.character_narrator import Narrator
 from main_characters.character_barry import Barry
 from food_holders.honey_dispenser import HoneyDispenser
 from species.bees import Bee
 from models.wardrobe import Wardrobe
-from characters.all_characters import adam_flayman
+from characters.all_characters import (
+    narrator, adam_flayman
+)
 
 
 def main() -> None:
-    narrator = Narrator()
     bee = Bee()
     narrator.speak(bee.can_fly())
     barry = Barry()
