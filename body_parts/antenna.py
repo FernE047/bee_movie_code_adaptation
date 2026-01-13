@@ -1,9 +1,11 @@
+from body_parts.base_body_parts import BaseBodyPart
 from characters.base_character import BaseCharacter, Emotion
 from species.bees import Bee
 
 
-class Antenna:
+class Antenna(BaseBodyPart):
     def __init__(self, ringtone: str) -> None:
+        super().__init__("Antenna")
         self.ringtone: str = ringtone
         self.is_ringing = False
         self.owner: None | BaseCharacter[Bee] = None
