@@ -1,3 +1,3 @@
 # TODO
 
-1. alter characters to use body_parts
+1. rinse mouth, style hair and honey armpits
