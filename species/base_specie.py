@@ -1,16 +1,23 @@
+from enum import Enum
 from body_parts.armpit import Armpit
 from body_parts.base_body_parts import BaseBodyPart
 from body_parts.hair import Hair
 from body_parts.mouth import Mouth
 
+
+class WeightDescriptions(Enum):
+    LIGHT = "light"
+    MEDIUM = "medium"
+    FAT = "fat"
+
 class BaseSpecie:
     def __init__(
-        self, name: str, can_fly: bool = False, should_fly: bool = False
+        self, name: str, weight: WeightDescriptions = WeightDescriptions.MEDIUM, has_wings: bool = False
     ) -> None:
         self.name = name
-        self.can_fly_flag = can_fly
-        self.should_fly = should_fly
         self.body_parts: list[BaseBodyPart] = []
+        self.weight: WeightDescriptions = weight
+        self.has_wings = has_wings
         self.initialize_body_parts()
 
     def initialize_body_parts(self) -> None:
@@ -26,8 +33,8 @@ class BaseSpecie:
         return self.name
 
     def can_fly(self) -> str:
-        if self.can_fly_flag:
-            if self.should_fly:
+        if self.has_wings:
+            if self.weight != WeightDescriptions.FAT:
                 return f"{self.name}s can fly. they are so cool and aerodynamic!"
             else:
                 return f"According to all known laws of aviation, there is no way that a {self.name} should be able to fly. Its wings are too small to get its fat little body off the ground. The {self.name}, of course, flies anyway because {self.name}s don't care what humans think is impossible."

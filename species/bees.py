@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from body_parts.antenna import Antenna
 from body_parts.hair import HairType
-from species.base_specie import BaseSpecie
+from species.base_specie import BaseSpecie, WeightDescriptions
 
 if TYPE_CHECKING:
     from characters.base_character import BaseCharacter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 class Bee(BaseSpecie):
     def __init__(self) -> None:
-        super().__init__(name="Bee", can_fly=True, should_fly=False)
+        super().__init__(name="Bee", weight=WeightDescriptions.FAT, has_wings=True)
         self.antenna = Antenna(ringtone="Bzzzt")
         self.hair.type = HairType.FUZZ
         self.add_body_part(self.antenna)

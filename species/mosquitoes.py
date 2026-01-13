@@ -1,6 +1,6 @@
-from species.base_specie import BaseSpecie
+from species.base_specie import BaseSpecie, WeightDescriptions
 
 
 class Mosquito(BaseSpecie):
     def __init__(self) -> None:
-        super().__init__(name="Mosquito", can_fly=True, should_fly=True)
+        super().__init__(name="Mosquito", weight=WeightDescriptions.LIGHT, has_wings=True)
