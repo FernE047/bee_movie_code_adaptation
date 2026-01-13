@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.ladybugs import Ladybug
 
 
-class LadybugCharacter(BaseCharacter):
+class LadybugCharacter(BaseCharacter[Ladybug]):
     species: Ladybug
 
     def __init__(self) -> None:

@@ -1,17 +1,18 @@
 from characters.base_character import BaseCharacter, Emotion
+from species.bees import Bee
 
 
 class Antenna:
     def __init__(self, ringtone: str) -> None:
         self.ringtone: str = ringtone
         self.is_ringing = False
-        self.owner: None | BaseCharacter = None
-        self.caller: None | BaseCharacter = None
+        self.owner: None | BaseCharacter[Bee] = None
+        self.caller: None | BaseCharacter[Bee] = None
 
-    def set_owner(self, owner: BaseCharacter) -> None:
+    def set_owner(self, owner: BaseCharacter[Bee]) -> None:
         self.owner = owner
 
-    def rings(self, caller: BaseCharacter) -> None:
+    def rings(self, caller: BaseCharacter[Bee]) -> None:
         if self.owner is None:
             return
         self.is_ringing = True

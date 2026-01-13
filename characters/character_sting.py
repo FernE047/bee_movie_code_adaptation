@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.bees import Bee
 
 
-class Sting(BaseCharacter):
+class Sting(BaseCharacter[Bee]):
     species: Bee
 
     def __init__(self) -> None:

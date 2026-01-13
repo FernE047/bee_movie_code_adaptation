@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.waterbugs import WaterBug
 
 
-class WaterBugCharacter(BaseCharacter):
+class WaterBugCharacter(BaseCharacter[WaterBug]):
     species: WaterBug
 
     def __init__(self) -> None:

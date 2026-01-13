@@ -12,7 +12,9 @@ class Bee(BaseSpecie):
         super().__init__(name="Bee", can_fly=True, should_fly=False)
         self.antenna = Antenna(ringtone="Bzzzt")
 
-    def receive_call(self, caller: BaseCharacter, owner: BaseCharacter) -> None:
+    def receive_call(
+        self, caller: BaseCharacter[Bee], owner: BaseCharacter[Bee]
+    ) -> None:
         self.antenna.set_owner(owner)
         self.antenna.rings(caller)
 

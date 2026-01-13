@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.bees import Bee
 
 
-class Bee2(BaseCharacter):
+class Bee2(BaseCharacter[Bee]):
     species: Bee
 
     def __init__(self) -> None:

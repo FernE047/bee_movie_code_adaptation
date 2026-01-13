@@ -7,7 +7,7 @@ from models.wardrobe import Wardrobe
 from species.bees import Bee
 
 
-class Barry(BaseCharacter):
+class Barry(BaseCharacter[Bee]):
     species: Bee
 
     def __init__(self) -> None:
@@ -101,7 +101,7 @@ class Barry(BaseCharacter):
         else:
             self.asks("What's for breakfast")
 
-    def receives_call(self, caller: BaseCharacter) -> None:
+    def receives_call(self, caller: BaseCharacter[Bee]) -> None:
         self.species.receive_call(caller, self)
         self.species.answers()
         caller.action("on the phone")

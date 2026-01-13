@@ -4,8 +4,9 @@ from foods.honey import Honey
 from species.bees import Bee
 
 
-class Mom(BaseCharacter):
+class Mom(BaseCharacter[Bee]):
     species: Bee
+
     def __init__(self) -> None:
         super().__init__(name="Janet Benson", nickname="Mom", species=Bee())
         self.breakfast: None | Breakfast = None
@@ -18,7 +19,9 @@ class Mom(BaseCharacter):
         self.breakfast = Breakfast()
         self.breakfast.prepare(honey)
         if self.breakfast.is_ready():
-            self.speak(f"{self.build_action('calling from downstairs')} Barry! Breakfast is ready!")
+            self.speak(
+                f"{self.build_action('calling from downstairs')} Barry! Breakfast is ready!"
+            )
         else:
             self.speak("Oh no, breakfast is not ready yet!")
 
@@ -27,4 +30,3 @@ class Mom(BaseCharacter):
             return self.breakfast
         else:
             raise ValueError("Breakfast is not ready.")
-

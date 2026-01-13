@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.speaker import Speaker
 
 
-class Narrator(BaseCharacter):
+class Narrator(BaseCharacter[Speaker]):
     species: Speaker
 
     def __init__(self) -> None:

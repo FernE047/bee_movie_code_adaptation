@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.humans import Human
 
 
-class Hal(BaseCharacter):
+class Hal(BaseCharacter[Human]):
     species: Human
 
     def __init__(self) -> None:

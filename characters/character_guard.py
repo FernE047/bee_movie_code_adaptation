@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.humans import Human
 
 
-class Guard(BaseCharacter):
+class Guard(BaseCharacter[Human]):
     species: Human
 
     def __init__(self) -> None:

@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.mosquitoes import Mosquito
 
 
-class Mooseblood(BaseCharacter):
+class Mooseblood(BaseCharacter[Mosquito]):
     species: Mosquito
 
     def __init__(self) -> None:

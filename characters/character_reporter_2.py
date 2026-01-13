@@ -2,7 +2,7 @@ from characters.base_character import BaseCharacter
 from species.humans import Human
 
 
-class Reporter2(BaseCharacter):
+class Reporter2(BaseCharacter[Human]):
     species: Human
 
     def __init__(self) -> None:
