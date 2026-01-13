@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 from body_parts.antenna import Antenna
+from body_parts.hair import HairType
 from species.base_specie import BaseSpecie
 
 if TYPE_CHECKING:
@@ -11,6 +12,8 @@ class Bee(BaseSpecie):
     def __init__(self) -> None:
         super().__init__(name="Bee", can_fly=True, should_fly=False)
         self.antenna = Antenna(ringtone="Bzzzt")
+        self.hair.type = HairType.FUZZ
+        self.add_body_part(self.antenna)
 
     def receive_call(
         self, caller: BaseCharacter[Bee], owner: BaseCharacter[Bee]

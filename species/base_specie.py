@@ -3,7 +3,6 @@ from body_parts.base_body_parts import BaseBodyPart
 from body_parts.hair import Hair
 from body_parts.mouth import Mouth
 
-
 class BaseSpecie:
     def __init__(
         self, name: str, can_fly: bool = False, should_fly: bool = False
@@ -19,6 +18,9 @@ class BaseSpecie:
         self.armpit = Armpit()
         self.hair = Hair()
         self.body_parts = [self.mouth, self.armpit, self.hair]
+
+    def add_body_part(self, part: BaseBodyPart) -> None:
+        self.body_parts.append(part)
 
     def get_name(self) -> str:
         return self.name
