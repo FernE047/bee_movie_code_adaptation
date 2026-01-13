@@ -9,7 +9,7 @@ class Emotion(Enum):
     ANNOYED = "annoyed"
 
 
-T = TypeVar('T', bound=BaseSpecie)
+T = TypeVar("T", bound=BaseSpecie)
 
 
 class BaseCharacter(Generic[T]):
@@ -36,9 +36,9 @@ class BaseCharacter(Generic[T]):
 
     def speak(self, text: str) -> None:
         if self.used_name_flag:
-            print(f"{self.nickname}: {text}")
+            self.species.speak(f"{self.nickname}: {text}")
         else:
-            print(f"{self.nickname} ({self.name}): {text}")
+            self.species.speak(f"{self.nickname} ({self.name}): {text}")
             self.used_name_flag = True
 
     def asks(self, question: str) -> None:

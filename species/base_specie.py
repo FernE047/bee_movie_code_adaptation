@@ -10,9 +10,13 @@ class WeightDescriptions(Enum):
     MEDIUM = "medium"
     FAT = "fat"
 
+
 class BaseSpecie:
     def __init__(
-        self, name: str, weight: WeightDescriptions = WeightDescriptions.MEDIUM, has_wings: bool = False
+        self,
+        name: str,
+        weight: WeightDescriptions = WeightDescriptions.MEDIUM,
+        has_wings: bool = False,
     ) -> None:
         self.name = name
         self.body_parts: list[BaseBodyPart] = []
@@ -46,3 +50,6 @@ class BaseSpecie:
             if part.name.lower() == part_name.lower():
                 return True
         return False
+
+    def speak(self, text: str) -> None:
+        self.mouth.speak(text)
